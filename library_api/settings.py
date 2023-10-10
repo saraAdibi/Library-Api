@@ -28,7 +28,13 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SILENCED_SYSTEM_CHECKS = ['security.W019']
+
 INSTALLED_APPS = [
+    'admin_interface',
+
+    'colorfield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,10 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-
+    'drf_yasg',
     # my apps
     'book',
 ]
+
+SWAGGER_SETTINGS = {
+    'DEFAULT_AUTO_SCHEMA_CLASS': 'drf_yasg.inspectors.SwaggerAutoSchema',
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
